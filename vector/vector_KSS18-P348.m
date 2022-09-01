@@ -83,7 +83,7 @@ else
      V:=ShortVectorsProcess(L, min, max);
      repeat
         C:=NextVector(V);
-     until GCD(C[1]+C[2]*p+C[3]*p^2+C[4]*p^3+C[5]*p^4+C[6]*p^5+C[7]*p^6+C[8]*p^7, p^8+1) eq r;
+     until GCD(C[1]+C[2]*p+C[3]*p^2+C[4]*p^3+C[5]*p^4+C[6]*p^5, p^6-p^3+1) eq r;
      printf"The vector C for GT testing on KSS16-P330 is given as\n";
     return C;
 end if;
