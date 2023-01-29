@@ -9,7 +9,7 @@ function VectorG1(r,lambda, D, h1,v)
             return C;
         end if;
     end for;
-    min:=Norm(ShortestVector(L));max:=2*min;
+    min:=Norm(ShortestVector(L));max:=v*min;
     V:=ShortVectorsProcess(L, min, max);
     repeat
         C:=NextVector(V);
@@ -107,5 +107,5 @@ h1:=(p+1-t) div r;
 t:=(13*z^6 - 23*z^5 - 9*z^4 + 35*z^3 + 10*z + 22) div 3;
 lambda:=z^5 - 3*z^4 + 3*z^3 - z + 1;
 D:=-3;
-v:=4;
+v:=2;
 VectorG1(r,lambda, D, h1,v);
