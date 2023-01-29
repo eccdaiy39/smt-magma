@@ -156,6 +156,6 @@ p:=(103*z^12-379*z^11+250*z^10+691*z^9-911*z^8 - 79*z^7 + 623*z^6
 Fp:=GF(p);
 Et:=EllipticCurve([Fp|0,4]);
 h2:=#Et div r;
-v:=3;
+v:=2;
 k:=6;
 VectorG2(r,t,p,k,h2,v);
