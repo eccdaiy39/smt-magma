@@ -41,7 +41,7 @@ function TestG1(P)
 end function;
 
 //*******************************function of G2 memebrship testing*****************************//
-//********************the short vector [c0, c1]=[z0*(z^2-2)+z,z0*(z^2-2)-1]*******************//
+//********************the short vector [c0, c1]=[z0*(z^2-2)+z, z0*(z^2-2)-1]*******************//
 function TestG2(Q)
     R0:=z*Q;R1:=z*R0;R2:=R1-2*Q;R3:=z0*R2;R4:=R3-Q;R5:=R3+R0;
     R6:=endmo(R4,1);
@@ -53,7 +53,7 @@ function TestG2(Q)
 end function;
 
 //*******************************function of GT memebrship testing*****************************//
-//********************the short vector [c0, c1]=[z0*(z^2-2)+z,z0*(z^2-2)-1]*******************//
+//********************the short vector [c0, c1]=[z0*(z^2-2)+z, z0*(z^2-2)-1]*******************//
 function TestGT(a)
     r0:=a^z;r1:=r0^z;r2:=r1/a^2;r3:=r2^z0;r4:=r3/a;r5:=r3*r0;
     r6:=Frobenius(r4,Fp,1);r7:=r5*r6;
