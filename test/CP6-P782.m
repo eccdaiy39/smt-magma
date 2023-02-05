@@ -31,18 +31,14 @@ function endmo(Q,i)
 end function;
 
 //*********************************G2 memebrship testing***************************//
-//********************the short vector C=[2*(z0*(z^2-2)-1)+z+1, -(z0*(z^2-2)-1)]************************//
-c0:=2*(z0*(z^2-2)-1)+z+1;
-c1:=-(z0*(z^2-2)-1);
-//2*(9*z0^3 + 6*z0^2 - z0 - 1)+3*z0+2;
-//-(9*z0^3 + 6*z0^2 - z0 - 1);
-
+//********************the short vector C=[2*z0*(z^2-2)+z-1, -z0*(z^2-2)+1]************************//
+c0:=2*z0*(z^2-2)+z-1;
+c1:=-z0*(z^2-2)+1;
 function TestG2(Q)
-   R0:=z*Q;R1:=z*R0-2*Q;R2:=z0*R1-Q;
-    R3:=2*R2+R0+Q; 
-    R4:=endmo(R2, 1);
-
-    if R3[1] eq  R4[1] and R3[2] eq R4[2] then 
+   R0:=z*Q;R1:=z*R0-2*Q;R2:=z0*R1;
+    R3:=2*R2+R0-Q; R4:=R2-Q;
+    R5:=endmo(R4, 1);
+    if R3[1] eq  R5[1] and R3[2] eq R5[2] then 
         return "PASS";
     else 
        return "REJECT";
@@ -51,19 +47,19 @@ end function;
 
 //*********************************GT memebrship testing***************************//
 //********************the short vector C=[(z0*(z^2-2)-1), (z0*(z^2-2)-1)+z+1]************************//
-c0:=(z0*(z^2-2)-1);
-c1:=(z0*(z^2-2)-1)+z+1;
+c0:=z0*(z^2-2)-1;
+c1:=z0*(z^2-2)+z;
 
 
 function TestGT(a)
     b0:=Frobenius(a,Fp,2)*a;
     b1:=Frobenius(a,Fp,1);
-    a0:=a^z; a1:=a0^z/a^2; a2:= a1^z0/a;
-    a3:=a2*a0*a;
-    a4:=Frobenius(a3,Fp,1);
+    a0:=a^z; a1:=a0^z/a^2; a2:= a1^z0;
+    a3:=a2/a;a4:=a2*a0;
+    a5:=Frobenius(a4,Fp,1);
     
    
-    if b0 eq  b1 and a2*a4 eq 1 then 
+    if b0 eq  b1 and a3*a5 eq 1 then 
         return "PASS";
     else 
        return "REJECT";
