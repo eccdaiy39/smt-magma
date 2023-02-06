@@ -57,7 +57,7 @@ Fp:=GF(p);
 F2<u>:=ExtensionField<Fp,u|u^2+1>;
 Et:=EllipticCurve([F2|0,257*(u+5)]);
 h2:=#Et div r;
-v:=2;
+v:=1;
 k:=12;
 VectorG2(r,t,p,k,h2,v);
 
@@ -71,7 +71,7 @@ Fp:=GF(p);
 F2<u>:=ExtensionField<Fp,u|u^2+1>;
 Et:=EllipticCurve([F2|0,4*(2+u)]);
 h2:=#Et div r;
-v:=2;
+v:=1;
 k:=12;
 VectorG2(r,t,p,k,h2,v);
 
@@ -98,7 +98,7 @@ Fp:=GF(p);
 F3<u>:=ExtensionField<Fp,u|u^3+7>;
 Et:=EllipticCurve([F3|0,3/u]);
 ht:=#Et div r;
-v:=2;
+v:=1;
 k:=18;
 VectorG2(r,t,p,k,h2,v);
 
@@ -142,7 +142,7 @@ t3:=t*t2-t*p;
 /*By Proposition 2 (in the case d=2) in https://eprint.iacr.org/2006/110.pdf
 the order of twisted curve over Fp^3 is (p^3+1+t3)*/
 h2:=(p^3+1+t3)div r;
-v:=4;
+v:=3;
 k:=6;
 VectorG2(r,t,p,k,h2,v);
 
@@ -156,6 +156,6 @@ p:=(103*z^12-379*z^11+250*z^10+691*z^9-911*z^8 - 79*z^7 + 623*z^6
 Fp:=GF(p);
 Et:=EllipticCurve([Fp|0,4]);
 h2:=#Et div r;
-v:=2;
+v:=1;
 k:=6;
 VectorG2(r,t,p,k,h2,v);
