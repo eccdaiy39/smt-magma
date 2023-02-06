@@ -30,7 +30,7 @@ t:=z+1;
 r:=z^4-z^2+1;
 h1:=(p+1-t) div r;
 D:=-3;
-v:=2;
+v:=1;
 lambda:=-z^2;
 
 VectorG1(r,lambda, D, h1,v);
@@ -43,7 +43,7 @@ t:=(2*z^5+41*z+35)div 35;
 p:=(z^10+2*z^9+5*z^8+48*z^6+152*z^5+240*z^4+625*z^2+2398*z+3125) div 980;
 h1:=(p+1-t) div r;
 D:=-4;
-v:=2;
+v:=1;
 lambda:=-(z^4+24) div 7;
 VectorG1(r,lambda, D, h1,v);
 
@@ -57,7 +57,7 @@ p:=Ceiling((z^8+5*z^7+7*z^6+37*z^5+188*z^4+259*z^3+343*z^2+1763*z+2401)/21);
 h1:=(p+1-t);
 lambda:=z^3+18;
 D:=-3;
-v:=2;
+v:=1;
 VectorG1(r,lambda, D, h1,v);
 
 printf("BW13-P310:\n");
@@ -70,7 +70,7 @@ t:=-72424742659885778123097924206425573989051009199;
 h1:=(p+1-t);
 lambda:=-z^13;
 D:=-3;
-v:=2;
+v:=1;
 VectorG1(r,lambda, D, h1,v);
 
 
@@ -94,7 +94,7 @@ t:=(2*z^7+757*z+259) div 259;
 h1:=(p+1-t) div r;
 lambda:=(z^6+343) div 37;
 D:=-3;
-v:=2;
+v:=1;
 VectorG1(r,lambda, D, h1,v);
 
 
@@ -107,5 +107,5 @@ h1:=(p+1-t) div r;
 t:=(13*z^6 - 23*z^5 - 9*z^4 + 35*z^3 + 10*z + 22) div 3;
 lambda:=z^5 - 3*z^4 + 3*z^3 - z + 1;
 D:=-3;
-v:=2;
+v:=1;
 VectorG1(r,lambda, D, h1,v);
