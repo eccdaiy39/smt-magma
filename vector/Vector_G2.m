@@ -1,49 +1,33 @@
-//*VectorG2 function is used for finding out a short vector for G2 membership testing*//
+/*The  VectorG2() function is provided by a Anonymous reviewer*/
 function VectorG2(r,t,p,k,h2,v)
-    u:=EulerPhi(k);
-    B:=RMatrixSpace(Integers(), u,u)!0;
-    B[1][1]:=r;
-    for i:=2 to u do
-        B[i][1]:=-p^(i-1);B[i][i]:=1;
-    end for;
-    L:= LatticeWithBasis(B);
-    S:=ShortestVectors(L);
-    P<x,m,n>:=PolynomialRing(Integers(),3);
-    I := ideal<P|x^2-m*x+n>;
-    R:=quo<P|I>;
-    for i:=1 to #S do
-        C:=S[i];
-        b:=0;
-        for j:=1 to u do
-            b:=(b+C[j]*x^(j-1));
-        end for;
-        b:=R!b;
-        b:=Evaluate(b,2,t);
-        b:=Evaluate(b,3,p);
-        b:=Coefficients(b);
-        h2d:=(b[2]^2+b[1]*b[2]*t+b[1]^2*p) div r;
-        if GCD(h2,h2d) eq 1 then        
-            return C;
-        end if;
-    end for;
-    min:=Norm(ShortestVector(L));max:=v*min;
-    V:=ShortVectorsProcess(L, min, max);
-    repeat
-        C:=NextVector(V);
-        if Norm(C) eq 0 then
-            return "Please reselect the value of v";
-        end if;
-        b:=0;
-        for j:=1 to u do
-            b:=b+C[j]*x^(j-1);
-        end for;
-        b:=R!b;
-        b:=Evaluate(b,2,t);
-        b:=Evaluate(b,3,p);
-        b:=Coefficients(b);
-        h2d:=(b[2]^2+b[1]*b[2]*t+b[1]^2*p) div r;
-    until GCD(h2,h2d) eq 1;
-    return C;
+        u:=EulerPhi(k);
+	B:=RMatrixSpace(Integers(), u,u)!0;
+	B[1][1]:=r;
+	for i:=2 to u do
+	    B[i][1]:=-p^(i-1);B[i][i]:=1;
+	end for;
+	L:=LatticeWithBasis(B);
+	S:=ShortestVectors(L);
+	R<x>:=PolynomialRing(Integers());
+	for i:=1 to #S do
+	    C:=S[i];
+	    b:=R!Eltseq(C);
+	    h2d:=Resultant(b, x^2-t*x+p) div r;
+	    if GCD(h2,h2d) eq 1 then
+		return C;
+	    end if;
+	end for;
+	min:=Norm(ShortestVector(L));max:=v*min;
+	V:=ShortVectorsProcess(L, min, max);
+	repeat
+	    C:=NextVector(V);
+	    if Norm(C) eq 0 then
+	        return "NULL";
+	    end if;
+	    b:=R!Eltseq(C);
+	    h2d:=Resultant(b, x^2-t*x+p) div r;
+	until GCD(h2,h2d) eq 1;
+	return C;
 end function;
 
 //*************************************Curve parmamters*************************//
@@ -159,3 +143,4 @@ h2:=#Et div r;
 v:=1;
 k:=6;
 VectorG2(r,t,p,k,h2,v);
+
