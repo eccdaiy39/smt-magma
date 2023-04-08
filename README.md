@@ -88,19 +88,19 @@ The main source code of our algorithms are distributed in different folders.  Th
        
       2. Line 196-Line 209, the first SQPL:
       
-        6S+n*(pp_qpl_k13_projc_lazyr()+4M)=6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+         6S+n*(pp_qpl_k13_projc_lazyr()+4M)=6S+n(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
 
       3. Line 214- Line 223 SDBLADD:
       
-         4S+n*(pp_dba_k13_projc_lazyr()+4M)=4S+(13M+8Mu+6S+Su+39m+6R+26A)
+         4S+n(pp_dba_k13_projc_lazyr()+4M)=4S+n(13M+5Mu+6S+Su+39m+6R+26A)
          
       4.  Line 228- Line 242, the last 4 SQPL:
         
-        8S+n*(pp_qpl_k13_projc_lazyr()+4M)=8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+           8S+n*(pp_qpl_k13_projc_lazyr()+4M)=8S+n(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
         
       5.   Line 245-Line 250, SADD:
          
-         n*(4M+p_add_k13_projc_lazyr())=n*(12M+5Mu+39m+3S+3R+15A)
+           n(4M+p_add_k13_projc_lazyr())=n(12M+5Mu+39m+3S+3R+15A)
  
 
   
