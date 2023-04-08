@@ -51,7 +51,6 @@ The main source code of our algorithms are distributed in different folders.  Th
    5. ./bench_pc
 
 ### Operation count for pairing computation:
- *
     * pp_dba_k13_projc_lazyr():
         Line 191- Line 205 point doubling,  2M+Mu+3S+Su+R+7A,
         
