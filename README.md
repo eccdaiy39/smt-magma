@@ -81,10 +81,10 @@ The main source code of our algorithms are distributed in different folders.  Th
         M+5Mu+39m+4R+11A
         
         total cost  9M+8Mu+6S+Su+39m+6R+26A       
-   *  pp_mil_k13_sim():  src\pp\relic_pp_map.c
+   *  pp_mil_k13_sim():  src\pp\relic_pp_map_k13.c
       1. Line 178-Line 193,   nitializing l1, l2, l3 and l4,
       
-       (n-1)*(M+)
+       2(n-1)(M+A)
        
       2. Line 196-Line 209, the first SQPL:
       
