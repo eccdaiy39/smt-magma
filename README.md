@@ -51,6 +51,7 @@ The main source code of our algorithms are distributed in different folders.  Th
    5. ./bench_pc
 
 ### Operation count for pairing computation:
+    M, Mu, S, Su, R,F, A: Multiplication,Multiplication without reduction, squaring, squairing without reduction, modular reduction, Frobenius and addition in $\F_{}p^{13}$.
         
    * pp_qpl_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
    
@@ -98,10 +99,11 @@ The main source code of our algorithms are distributed in different folders.  Th
         
            8S+n*(pp_qpl_k13_projc_lazyr()+4M)=8S+n(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
         
-      5.   Line 245-Line 250, SADD:
+      5.  Line 245-Line 250, SADD:
          
            n(4M+p_add_k13_projc_lazyr())=n(12M+5Mu+39m+3S+3R+15A)
- 
+      6.  Line 258-260 computing $L_{n,1}$ and $L_{n,2}$
+          n*(13m+A) +3(n-1)M+3F
 
   
   
