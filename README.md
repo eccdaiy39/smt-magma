@@ -52,7 +52,7 @@ The main source code of our algorithms are distributed in different folders.  Th
 
 ### Operation count for pairing computation:
         
-   * pp_qpl_k13_projc_lazyr():
+   * pp_qpl_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
    
      Line 72- Line 104- the  point quadrupling,   2*(2M+Mu+3S+Su+R+7A)
      
@@ -60,7 +60,7 @@ The main source code of our algorithms are distributed in different folders.  Th
        
        total cost 8M+6Mu+7S+2Su+36m+13mu+6R+28A
 
-   *  pp_add_k13_projc_lazyr():
+   *  pp_add_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
      
         Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
         
@@ -68,7 +68,7 @@ The main source code of our algorithms are distributed in different folders.  Th
         
         total cost: 8M+5Mu+39m+3S+3R+15A 
        
-   * pp_dba_k13_projc_lazyr():
+   * pp_dba_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
     
         Line 191- Line 205 point doubling,  2M+Mu+3S+Su+R+7A,
         
@@ -81,7 +81,7 @@ The main source code of our algorithms are distributed in different folders.  Th
         M+5Mu+39m+4R+11A
         
         total cost  9M+8Mu+6S+Su+39m+6R+26A       
-   *  pp_mil_k13_sim():
+   *  pp_mil_k13_sim():  src\pp\relic_pp_map.c
       1. Line 178-Line 193,   nitializing l1, l2, l3 and l4,
       
        (n-1)*(M+)
