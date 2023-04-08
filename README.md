@@ -84,7 +84,7 @@ The main source code of our algorithms are distributed in different folders.  Th
    *  pp_mil_k13_sim():  src\pp\relic_pp_map_k13.c
       1. Line 178-Line 193,   nitializing l1, l2, l3 and l4,
       
-       2(n-1)(M+A)
+         2(n-1)(M+A) (Assume that fp13_neg()+fp_add() costs A)
        
       2. Line 196-Line 209, the first SQPL:
       
