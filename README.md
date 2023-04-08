@@ -51,6 +51,7 @@ The main source code of our algorithms are distributed in different folders.  Th
    5. ./bench_pc
 
 ### Operation count for pairing computation:
+
     *  pp_add_k13_projc_lazyr():
         Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
         Line 330-Line348 line function evaluation, 2M+3Mu+39m+2R+7A
