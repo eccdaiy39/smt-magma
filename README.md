@@ -51,7 +51,11 @@ The main source code of our algorithms are distributed in different folders.  Th
    5. ./bench_pc
 
 ### Operation count for pairing computation:
-    M, Mu, S, Su, R,F, A: Multiplication,Multiplication without reduction, squaring, squairing without reduction, modular reduction, Frobenius and addition in $\F_{}p^{13}$.
+  * 1. M, Mu, S, Su, R,F, A: Multiplication,Multiplication without reduction, squaring, squairing without reduction, modular reduction, Frobenius and addition in $\F_{p}^{13}$.
+  
+   2.p13_hlv, fp13_addn_low(), fp13_add(), fp13_sub, fp_dbl() costs A.
+   3. fp13_addc_low, fp13_addd_low, fp13_subc_low(), fp13_subd_low(), fp13_dblc_low(), fp13_dbld_low() costs 2A
+  
         
    * pp_qpl_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
    
