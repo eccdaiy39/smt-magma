@@ -51,20 +51,17 @@ The main source code of our algorithms are distributed in different folders.  Th
    5. ./bench_pc
 
 ### Operation count for pairing computation:
-
     *  pp_add_k13_projc_lazyr():
         Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
         Line 330-Line348 line function evaluation, 2M+3Mu+39m+2R+7A
-        total cost: 8M+5Mu+39m+3S+3R+15A
-    
+        total cost: 8M+5Mu+39m+3S+3R+15A 
     *  pp_dba_k13_projc_lazyr():
         Line 191- Line 205 point doubling,  2M+Mu+3S+Su+R+7A,
         Line 209-Line 228, point addition,
         6M+2Mu+3S+R+8A;
         Line 232-Line 256,  line function computation, 
         M+5Mu+39m+4R+11A
-        total cost  9M+8Mu+6S+Su+39m+6R+26A
-        
+        total cost  9M+8Mu+6S+Su+39m+6R+26A  
    *  pp_qpl_k13_projc_lazyr():
        Line 72- Line 104- the  point quadrupling,   2*(2M+Mu+3S+Su+R+7A)
        Line 107-Line136 line function computation,  4M+4Mu+S+26m+13mu+4R+14A
