@@ -58,7 +58,6 @@ Notations:
 
 m, mu, s, su, r, and a: Multiplication, multiplication without reduction, squaring, squaring without reduction, modular reduction and addition in $\mathbb{F}_{p}$.
 
-
     1.pp_add_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
        ##Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
         Line 331-Line348 line function computation, 2M+3Mu+39m+2R+7A
