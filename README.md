@@ -74,54 +74,55 @@ The main source code of our algorithms are distributed in different folders.  Th
         Line 232-Line 256,  line function computation, 
         M+5Mu+39m+4R+11A
         total cost  9M+8Mu+6S+Su+39m+6R+26A
-   3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+        
+    3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
        Line 72- Line 104- the  point quadrupling, 
        2*(2M+Mu+3S+Su+R+7A)
        Line 107-Line136 line function computation, 
        4M+4Mu+S+26m+13mu+4R+14A
        total cost 8M+6Mu+7S+2Su+36m+13mu+6R+28A
 
-  pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
+   4. pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
 
-  Line 68-Line 80,    nitializing l1, l2, l3 and l4,
+      Line 68-Line 80,    nitializing l1, l2, l3 and l4,
 
-  Line 87-Line 100, the first nSQPL:
+       Line 87-Line 100, the first nSQPL:
   
-  6S+n*(pp_qpl_k13_projc_lazyr()+4M)
+        6S+n*(pp_qpl_k13_projc_lazyr()+4M)
   
-  =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+        =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
 
-  Line 105- Line 114 nSDBLADD:
+       Line 105- Line 114 nSDBLADD:
   
-  4S+n*(pp_dba_k13_projc_lazyr()+4M)
+       4S+n*(pp_dba_k13_projc_lazyr()+4M)
   
-  =4S+(5M+5Mu+39m+4R+11A
+      =4S+(5M+5Mu+39m+4R+11A
   
-   total cost  9M+8Mu+6S+Su+39m+6R+26A)
+      total cost  9M+8Mu+6S+Su+39m+6R+26A)
    
-Line 119- Line 133 the last 4 SQPL:
+      Line 119- Line 133 the last 4 SQPL:
 
-8S+n*(pp_qpl_k13_projc_lazyr()+4M)
+      8S+n*(pp_qpl_k13_projc_lazyr()+4M)
 
-  =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+      =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
   
-  Line 137-Line 141: nSADD
+      Line 137-Line 141: nSADD
   
-  n*(4M+p_add_k13_projc_lazyr())
+      n*(4M+p_add_k13_projc_lazyr())
   
-  =n*(12M+5Mu+39m+3S+3R+15A)
+      =n*(12M+5Mu+39m+3S+3R+15A)
 
-pp_exp_bwk13(r,  l1,  l4):\src\pp\relic_pp_exp_k13.c
+6. pp_exp_bwk13(r,  l1,  l4):\src\pp\relic_pp_exp_k13.c
 
-pp_map_sim_sup_oatep_k13():\src\pp\relic_pp_map_k13.c
+7. pp_map_sim_sup_oatep_k13():\src\pp\relic_pp_map_k13.c
 
-the cost of Miller loop: Line 310-356
+   the cost of Miller loop: Line 310-356
 
-Line 301: the main cost of miller loop
+   Line 301: the main cost of miller loop
 
-Line 307-356, the cost of function transformation
+   Line 307-356, the cost of function transformation
 
-Line 359, the cost of the final exponentiation.
+   Line 359, the cost of the final exponentiation.
 
 
 
