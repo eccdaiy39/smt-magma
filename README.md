@@ -60,59 +60,55 @@ The main source code of our algorithms are distributed in different folders.  Th
      4. fp13_addc_low, fp13_addd_low, fp13_subc_low(), fp13_subd_low(), fp13_dblc_low(), fp13_dbld_low() costs 2A
   
         
-   * pp_qpl_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
    
-     Line 72- Line 104- the  point quadrupling,   2*(2M+Mu+3S+Su+R+7A)
-     
-       Line 107-Line136 line function computation,  4M+4Mu+S+26m+13mu+4R+14A
-       
+
+    1.pp_add_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+        Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
+        Line 331-Line348 line function computation, 2M+3Mu+39m+2R+7A
+        total cost: 8M+5Mu+39m+3S+3R+15A
+    
+    2.pp_dba_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+        Line 191- Line 205 point doubling,  2M+Mu+3S+Su+R+7A,
+        Line 209-Line 228, point addition,
+        6M+2Mu+3S+R+8A;
+        Line 232-Line 256,  line function computation, 
+        M+5Mu+39m+4R+11A
+        total cost  9M+8Mu+6S+Su+39m+6R+26A
+   3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+       Line 72- Line 104- the  point quadrupling, 
+       2*(2M+Mu+3S+Su+R+7A)
+       Line 107-Line136 line function computation, 
+       4M+4Mu+S+26m+13mu+4R+14A
        total cost 8M+6Mu+7S+2Su+36m+13mu+6R+28A
 
-   *  pp_add_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
-     
-        Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
-        
-        Line 330-Line348 line function evaluation, 2M+3Mu+39m+2R+7A
-        
-        total cost: 8M+5Mu+39m+3S+3R+15A 
-       
-   * pp_dba_k13_projc_lazyr():src\pp\relic_pp_qpl_k13.c
-    
-        Line 191- Line 205 point doubling,  2M+Mu+3S+Su+R+7A,
-        
-        Line 209-Line 228, point addition,
-        
-        6M+2Mu+3S+R+8A;
-        
-        Line 232-Line 256,  line function computation, 
-        
-        M+5Mu+39m+4R+11A
-        
-        total cost  9M+8Mu+6S+Su+39m+6R+26A       
-   *  pp_mil_k13_sim():  src\pp\relic_pp_map_k13.c
-      1. Line 178-Line 193,   nitializing l1, l2, l3 and l4,
-      
-         2(n-1)(M+A) (Assume that fp13_neg()+fp_add() costs A)
-       
-      2. Line 196-Line 209, the first SQPL:
-      
-         6S+n*(pp_qpl_k13_projc_lazyr()+4M)=6S+n(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+  pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
 
-      3. Line 214- Line 223 SDBLADD:
-      
-         4S+n(pp_dba_k13_projc_lazyr()+4M)=4S+n(13M+5Mu+6S+Su+39m+6R+26A)
-         
-      4.  Line 228- Line 242, the last 4 SQPL:
-        
-           8S+n*(pp_qpl_k13_projc_lazyr()+4M)=8S+n(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
-        
-      5.  Line 245-Line 250, SADD:
-         
-           n(4M+p_add_k13_projc_lazyr())=n(12M+5Mu+39m+3S+3R+15A)
-      6.  Line 258-260 computing $L_{n,1}$ and $L_{n,2}$
-          n*(13m+A) +3(n-1)M+3F
+  Line 68-Line 80,    nitializing l1, l2, l3 and l4,
+  (n-1)*(M+)
+  Line 87-Line 100, the first nSQPL:
+  6S+n*(pp_qpl_k13_projc_lazyr()+4M)
+  =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
 
-  
-  
+  Line 105- Line 114 nSDBLADD:
+  4S+n*(pp_dba_k13_projc_lazyr()+4M)
+  =4S+(5M+5Mu+39m+4R+11A
+        total cost  9M+8Mu+6S+Su+39m+6R+26A)
+Line 119- Line 133 the last 4 SQPL:
+8S+n*(pp_qpl_k13_projc_lazyr()+4M)
+  =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+  Line 137-Line 141: nSADD
+  n*(4M+p_add_k13_projc_lazyr())
+  =n*(12M+5Mu+39m+3S+3R+15A)
+
+pp_exp_bwk13(r,  l1,  l4):\src\pp\relic_pp_exp_k13.c
+
+pp_map_sim_sup_oatep_k13():\src\pp\relic_pp_map_k13.c
+
+the cost of Miller loop: Line 310-356
+Line 301: the main cost of miller loop
+Line 307-356, the cost of function transformation
+
+Line 359, the cost of the final exponentiation.
+
 
 
