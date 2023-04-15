@@ -22,7 +22,8 @@ Instructions for building the library can be found in the [Wiki](https://github.
 ### Source code
   
 The main source code of our algorithms are distributed in different folders.  The main functions are:
-* pp_map_sup_oatep_k13(fp13_t r, ep_t p, ep13_t q): given $p\in  \mathbb{G}_1$ and $q\in \mathbb{G}_2$,  computing $r=e(p,q)$ 
+* pp_map_sup_oatep_k13(fp13_t r, ep_t p, ep13_t q): given $p\in  \mathbb{G}_1$ and $q\in \mathbb{G}_2$,  computing a single pairing.
+* pp_map_sim_sup_oatep_k13(fp13_t r,  ep_t *p,   ep13_t *q, int m): computing a m-pairing products
 * ep_map(ep_t p, const uint8_t *msg, int len) : hashing to $\mathbb{G}_1$
 * ep13_map(ep13_t p, const uint8_t *msg, int len) : hashing to $\mathbb{G}_2$
 * ep_mul(ep_t q, ep_t p, bn_t k) : given a random point $p\in \mathbb{G}_1$ and a random scalar $k$, computing $q=[k]p$
@@ -50,20 +51,16 @@ The main source code of our algorithms are distributed in different folders.  Th
    4. cd bin 
    5. ./bench_pc
 
-### Operation count for pairing computation:
-  *  1. M, Mu, S, Su, R,F, A: Multiplication,Multiplication without reduction, squaring, squairing without reduction, modular reduction, Frobenius and addition in $\mathbb{F}_{p^{13}}$;
-  
-     2. m, mu, s, su, r,a: Multiplication,Multiplication without reduction, squaring, squairing without reduction, modular reduction and addition in $\mathbb{F}_{p\}$; 
-  
-     3. p13_hlv, fp13_addn_low(), fp13_add(), fp13_sub, fp_dbl() costs A.
-   
-     4. fp13_addc_low, fp13_addd_low, fp13_subc_low(), fp13_subd_low(), fp13_dblc_low(), fp13_dbld_low() costs 2A
-  
-        
-   
+### Operation count for n-pairings products computation:
+Notations:
+
+ M, Mu, S, Su, R, f, e and A: Multiplication, multiplication without reduction, squaring, squaring without reduction, modular reduction, Frobenius, exponentiation and addition in $\mathbb{F}_{p^{13}}$.
+
+m, mu, s, su, r, and a: Multiplication, multiplication without reduction, squaring, squaring without reduction, modular reduction and addition in $\mathbb{F}_{p}$.
+
 
     1.pp_add_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
-        Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
+       ##Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
         Line 331-Line348 line function computation, 2M+3Mu+39m+2R+7A
         total cost: 8M+5Mu+39m+3S+3R+15A
     
@@ -74,55 +71,38 @@ The main source code of our algorithms are distributed in different folders.  Th
         Line 232-Line 256,  line function computation, 
         M+5Mu+39m+4R+11A
         total cost  9M+8Mu+6S+Su+39m+6R+26A
-        
-    3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+   3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
        Line 72- Line 104- the  point quadrupling, 
        2*(2M+Mu+3S+Su+R+7A)
        Line 107-Line136 line function computation, 
        4M+4Mu+S+26m+13mu+4R+14A
        total cost 8M+6Mu+7S+2Su+36m+13mu+6R+28A
 
-   4. pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
+  pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
 
-      Line 68-Line 80,    nitializing l1, l2, l3 and l4,
+  Line 68-Line 80,    nitializing l1, l2, l3 and l4,
+  (n-1)*(M+)
+  Line 87-Line 100, the first nSQPL:
+  6S+n*(pp_qpl_k13_projc_lazyr()+4M)
+  =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
 
-       Line 87-Line 100, the first nSQPL:
-  
-        6S+n*(pp_qpl_k13_projc_lazyr()+4M)
-  
-        =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+  Line 105- Line 114 nSDBLADD:
+  4S+n*(pp_dba_k13_projc_lazyr()+4M)
+  =4S+(5M+5Mu+39m+4R+11A
+        total cost  9M+8Mu+6S+Su+39m+6R+26A)
+Line 119- Line 133 the last 4 SQPL:
+8S+n*(pp_qpl_k13_projc_lazyr()+4M)
+  =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+  Line 137-Line 141: nSADD
+  n*(4M+p_add_k13_projc_lazyr())
+  =n*(12M+5Mu+39m+3S+3R+15A)
 
-       Line 105- Line 114 nSDBLADD:
-  
-       4S+n*(pp_dba_k13_projc_lazyr()+4M)
-  
-      =4S+(5M+5Mu+39m+4R+11A
-  
-      total cost  9M+8Mu+6S+Su+39m+6R+26A)
-   
-      Line 119- Line 133 the last 4 SQPL:
+pp_exp_bwk13(r,  l1,  l4):\src\pp\relic_pp_exp_k13.c
 
-      8S+n*(pp_qpl_k13_projc_lazyr()+4M)
+pp_map_sim_sup_oatep_k13():\src\pp\relic_pp_map_k13.c
 
-      =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
-  
-      Line 137-Line 141: nSADD
-  
-      n*(4M+p_add_k13_projc_lazyr())
-  
-      =n*(12M+5Mu+39m+3S+3R+15A)
+the cost of Miller loop: Line 310-356
+Line 301: the main cost of miller loop
+Line 307-356, the cost of function transformation
 
-6. pp_exp_bwk13(r,  l1,  l4):\src\pp\relic_pp_exp_k13.c
-
-7. pp_map_sim_sup_oatep_k13():\src\pp\relic_pp_map_k13.c
-
-   the cost of Miller loop: Line 310-356
-
-   Line 301: the main cost of miller loop
-
-   Line 307-356, the cost of function transformation
-
-   Line 359, the cost of the final exponentiation.
-
-
-
+Line 359, the cost of the final exponentiation.
