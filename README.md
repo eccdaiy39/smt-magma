@@ -59,37 +59,59 @@ Notations:
 m, mu, s, su, r, and a: Multiplication, multiplication without reduction, squaring, squaring without reduction, modular reduction and addition in $\mathbb{F}_{p}$.
 
     1.pp_add_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+    
        Line310-Line328, point additon, 6M+2Mu+3S+R+8A;
+       
         Line 331-Line348 line function computation, 2M+3Mu+39m+2R+7A
+        
         total cost: 8M+5Mu+39m+3S+3R+15A
     
     2.pp_dba_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+    
         Line 191- Line 205, point doubling,  2M+Mu+3S+Su+R+7A,
+        
         Line 209-Line 228, point addition,  6M+2Mu+3S+R+8A;
+        
         Line 232-Line 256,  line function computation, M+5Mu+39m+4R+11A
+        
         total cost 9M+8Mu+6S+Su+39m+6R+26A
         
    3. pp_qpl_k13_projc_lazyr():\src\pp\relic_pp_qpl_k13.c
+   
        Line 72- Line 104 the point quadrupling, 2*(2M+Mu+3S+Su+R+7A)
+       
        Line 107-Line 136 line function computation, 4M+4Mu+S+26m+13mu+4R+14A
+       
        total cost 8M+6Mu+7S+2Su+36m+13mu+6R+28A
 
    4. pp_mil_k13_sim():\src\pp\relic_pp_map_k13.c
+   
       Line 68-Line 80,  initializing l1, l2, l3 and l4,
+      
       Line 87-Line 100, the first nSQPL:
+      
       6S+n*(pp_qpl_k13_projc_lazyr()+4M)
+      
       =6S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
       
       Line 105- Line 114, nSDBLADD:
+      
       4S+n*(pp_dba_k13_projc_lazyr()+4M)
+      
       =4S+(5M+5Mu+39m+4R+11A
+      
       total cost 9M+8Mu+6S+Su+39m+6R+26A)
         
       Line 119- Line 133 the last 4 SQPL:
+      
       8S+n*(pp_qpl_k13_projc_lazyr()+4M)
+      
       =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
+      
       Line 137-Line 141: nSADD
+      
       n*(4M+p_add_k13_projc_lazyr())
+      
       =n*(12M+5Mu+39m+3S+3R+15A)
 
   5. pp_exp_bwk13(r, l1, l4): \src\pp\relic_pp_exp_k13.c
