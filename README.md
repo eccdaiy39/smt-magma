@@ -85,21 +85,21 @@ m, mu, s, su, r, and a: Multiplication, multiplication without reduction, squari
       =4S+(5M+5Mu+39m+4R+11A
       total cost 9M+8Mu+6S+Su+39m+6R+26A)
         
-    Line 119- Line 133 the last 4 SQPL:
+      Line 119- Line 133 the last 4 SQPL:
       8S+n*(pp_qpl_k13_projc_lazyr()+4M)
       =8S+n*(12M+6Mu+7S+2Su+26m+13mu+6R+28A)
       Line 137-Line 141: nSADD
       n*(4M+p_add_k13_projc_lazyr())
       =n*(12M+5Mu+39m+3S+3R+15A)
 
-pp_exp_bwk13(r, l1, l4): \src\pp\relic_pp_exp_k13.c
+  5. pp_exp_bwk13(r, l1, l4): \src\pp\relic_pp_exp_k13.c
 
-pp_map_sim_sup_oatep_k13(): \src\pp\relic_pp_map_k13.c
+  6. pp_map_sim_sup_oatep_k13(): \src\pp\relic_pp_map_k13.c
 
-the cost of Miller loop: Line 310-356
+    the cost of Miller loop: Line 310-356
 
-Line 301: the main cost of miller loop
+        Line 301: the main cost of miller loop
 
-Line 307-356, the cost of function transformation
+        Line 307-356, the cost of function transformation
 
-Line 359, the cost of the final exponentiation.
+    Line 359, the cost of the final exponentiation.
